@@ -1,0 +1,291 @@
+@import "../../scss/vars";
+.chatContainer {
+  width: 100%;
+  height: 550px;
+  background-color: #fff;
+  .ant-col {
+    height: 550px;
+    flex: 1;
+  }
+  .chatInner {
+    height: calc(100% - 60px);
+    .ant-avatar {
+      margin-top: -40px;
+    }
+    & > div {
+      height: 100%;
+    }
+  }
+  .loadingWrapper {
+    width: calc(100% - 250px);
+    left: 250px;
+    top: 73px;
+    bottom: 0;
+    position: absolute;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .chatHeader {
+    padding: 0 20px;
+    height: 60px;
+    border-bottom: 1px solid $border;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .chatContent {
+    flex-basis: calc(100% - 250px);
+  }
+  .chatInput {
+    margin: 5px 20px;
+    border-radius: 30px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0 10px;
+    background-color: $bg;
+    position: relative;
+    input {
+      border: none;
+      outline: none;
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+    }
+    .icon {
+      position: absolute;
+      right: 20px;
+      top: 9px;
+      color: $txt2;
+      cursor: pointer;
+      &.attachment {
+        top: 7px;
+        right: 50px;
+        font-size: 16px;
+      }
+    }
+  }
+  .messageText {
+    color: #333;
+    margin-left: 10px;
+    margin-bottom: 3px;
+    margin-right: 15px;
+    &.right {
+      color: #fff;
+    }
+  }
+  .sidebarCol {
+    &.visible {
+      display: block;
+    }
+    .mobileClose {
+      display: none;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      z-index: 9;
+      font-size: 18px;
+    }
+  }
+  .mobileMenu {
+    display: none;
+    margin-right: 15px;
+    font-size: 13px;
+    cursor: pointer;
+  }
+  .fileMessage {
+    padding: 5px 10px;
+    margin-bottom: 15px;
+    background-color: $bg;
+  }
+  @media screen and (max-width: 670px) {
+    &, .ant-col {
+      height: 440px;
+    }
+    .chatContent {
+      flex-basis: 100%;
+    }
+    .head {
+      //justiçfy-content: flex-start;
+      h3 {
+        margin-right: 20px !important;
+      }
+    }
+    .sidebarCol {
+      position: absolute;
+      width: 100%;
+      display: none;
+      .mobileClose {
+        display: block !important;
+      }
+    }
+    .sidebarContainer {
+      overflow: hidden;
+      position: absolute;
+      background: #fff;
+      z-index: 9;
+      height: 100%;
+      left: 0;
+      right: 0;
+      width: 100%;
+    }
+    .mobileMenu {
+      display: block !important;
+    }
+    .searchContainer input {
+      width: calc(100% - 60px)!important;
+    }
+    .subTxt {
+      width: 190px!important;
+    }
+    .loadingWrapper {
+      left: 0;
+      width: 100%;
+    }
+  }
+}
+
+.sidebarContainer {
+  flex-basis: 250px;
+  width: 250px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  height: 100%;
+  padding: 0 0 15px;
+  border-bottom-left-radius: 25px;
+  border-top-left-radius: 25px;
+  border-right: 1px solid $border;
+  position: relative;
+  div {
+    cursor: pointer;
+  }
+  .head {
+    height: 60px;
+    padding: 0 20px;
+    align-items: center;
+    border-bottom: 1px solid $border;
+    padding-top: 1px;
+    h3 {
+      margin: 0;
+    }
+    & > div {
+      margin-top: 5px;
+      font-size: 15px;
+    }
+  }
+  .chatList {
+    height: calc(100% - 60px);
+    overflow-y: auto;
+  }
+  .item {
+    display: flex;
+    flex-direction: row;
+    height: 80px;
+    border-bottom: 1px solid $border;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    position: relative;
+    padding: 0 20px;
+    .itemTitleContainer {
+      width: 130px;
+    }
+  }
+  .ant-avatar {
+    margin-right: 10px;
+  }
+  .messageTxt {
+    font-size: 14px;
+    color: $txt2;
+    font-weight: 400;
+    height: 16px;
+    overflow: hidden;
+    width: 125px;
+    .unseen {
+      font-weight: 600;
+    }
+  }
+  .msg {
+    display: flex;
+    align-items: center;
+  }
+  .userName {
+    font-size: 16px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 90px;
+    color: $txt;
+    font-weight: 400;
+    &.unseen {
+      color: $primary;
+      font-weight: 600;
+    }
+  }
+  .time {
+    color: $txt2;
+    font-size: 12px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+  .itemRight {
+    margin-top: 20px;
+    align-self: flex-end;
+  }
+  .unseenCount {
+    display: flex;
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    background-color: $primary;
+    justify-content: center;
+    align-items: center;
+    font-weight: 300;
+    font-size: 13px;
+    margin-top: 33px;
+    color: #fff;
+  }
+  .createContainer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    background-color: #fff;
+    height: 100%;
+    .searchContainer {
+      margin: 10px 0;
+      justify-content: center;
+      align-items: center;
+      input {
+        width: auto;
+        margin-bottom: 0;
+        margin-left: 15px;
+      }
+    }
+    .userItem {
+      padding: 15px;
+      border-bottom: 1px solid $border;
+      .subTxt {
+        font-size: 13px;
+        color: $txt2;
+        width: 155px;
+      }
+    }
+    .content {
+      overflow-y: scroll;
+      height: calc(100% - 112px);
+    }
+  }
+  @media screen and (max-width: 575px) {
+    .userName, .messageTxt {
+      width: 60px;
+    }
+  }
+}
